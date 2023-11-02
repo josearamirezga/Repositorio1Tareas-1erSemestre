@@ -1,5 +1,5 @@
-// Ordenamiento por inserción.
-// El ordenamiento por inserción. Funciona como en una baraja, ves de la izquierda a la derecha, tomando el primer elemento del arreglo como referencia
+// Ordenamiento por inserciÃ³n.
+// El ordenamiento por inserciÃ³n. Funciona como en una baraja, ves de la izquierda a la derecha, tomando el primer elemento del arreglo como referencia
 // Luego, tomas el siguiente valor. Si el siguiente valor es menor al primero, los cambias
 // Luego tomas el siguiente, y lo pasas poco a poco, hasta que ya no sea menor que todos los valores
 
@@ -26,6 +26,8 @@ int ImprimirArreglo(int Arreglo[5], int TamArreglo){
 
 int Insertion(int Arreglo[5], int TamArreglo){
 	
+	
+	
 	for(int i = 0; i < TamArreglo; i++){
 		
 		int NumActual = Arreglo[i];
@@ -39,8 +41,6 @@ int Insertion(int Arreglo[5], int TamArreglo){
 		}
 		Arreglo[posAnterior + 1] = NumActual;
 	}
-	
-	printf("\n Elemento menor: %d \n Elemento mayor: %d \n",Arreglo[0],Arreglo[TamArreglo-1]);
 }
 
 int Frecuencia(int Arreglo_Ordenado[5],int MAXRAND,int AUX[5]){
@@ -105,14 +105,18 @@ float Mediana(int Arreglo[5], int TamArreglo){
 	
 }
 
-int Create_Histogram(int Frequence[5], int TamArreglo, int Data){
+int Create_Histogram(int Frequence[5], int TamArreglo, float Data){
+	
+	printf("%d\n", Data);
 	
 	for (int i = 0; i < TamArreglo; i++){
-		int N = 0;
-		N = Frequence[i] * (1/Data) * 1.0;
-		int Probabilidad = 100 * N;
+		//printf("%d  ", Frequence[i]);
 		
-		printf("%d  :   ", i);
+		int Probabilidad = 500 * (Frequence[i]/Data);
+		
+		//printf("%f   ", N);
+		
+		printf("%d  :   ", i + 1);
 		
 		for (int j = 0; j < Probabilidad; j++){
 			
@@ -139,10 +143,13 @@ int main(){
 	ImprimirArreglo(Arreglo, Num);
 	
 	printf("\n");
-	
 	printf("El arreglo ordenado es: \n");
 	Insertion(Arreglo, Num);
 	ImprimirArreglo(Arreglo, Num);
+	
+	printf("\n\n");
+	
+	printf("Elemento menor: %d,\n Elemento mayor: %d \n",Arreglo[0], Arreglo[Num - 1]);
 	
 	printf("\n");
 	
@@ -152,7 +159,8 @@ int main(){
 	
 	printf ("La media, mediana y moda de los datos son:\n media: %.2f \n mediana: %.2f \n N moda: %d \n", Media(Arreglo, Num),Mediana(Arreglo, Num), Find_MAX(Probabilidad, MaxRand)+1);
 	
-	Create_Histogram(Probabilidad, MaxRand, Num);
+	float Data = Num * 1.0;
+	Create_Histogram(Probabilidad, MaxRand, Data);
 	
 	return 0; 
 }
