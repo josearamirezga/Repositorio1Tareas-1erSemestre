@@ -112,10 +112,6 @@ int Create_Histogram(int Frequence[5], int TamArreglo, int Data){
 		N = Frequence[i] * (1/Data) * 1.0;
 		int Probabilidad = 100 * N;
 		
-		
-		printf("%d  ", Frequence[i]);
-		
-		printf("%d  ", Probabilidad);
 		printf("%d  :   ", i);
 		
 		for (int j = 0; j < Probabilidad; j++){
